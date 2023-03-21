@@ -6,7 +6,6 @@ from docx.shared import Inches
 # Read the CSV file into a pandas dataframe
 df = pd.read_csv('JIT.csv', skiprows=6, header=6)
 
-
 df = pd.DataFrame(df)
 df = df[~df['PI (last, first)'].isin(['Active', 'Pending', 'Awarded'])]
 df = df.reset_index(drop=True)
@@ -17,7 +16,6 @@ for i in range(len(df)):
         df.loc[i, 'Is Mayo Secondary?'] = '(sub award of ____)'
 
 df['date_column'] = pd.to_datetime(df['Project Period End Date'], format='%m/%d/%Y')
-
 
 def create_word_document():
     # Create a new Word document
@@ -35,8 +33,6 @@ def create_word_document():
     for i in range(df.shape[0]):
 
         doc.add_paragraph("*Title: " + df["Grant Title"].loc[i])
-
-        # Insert the rest of the text
         doc.add_paragraph("Major Goals: NEED ")
         doc.add_paragraph("*Status of Support: "+ df["Status Category"].loc[i])
         doc.add_paragraph("Project Number: " + df["External Grant ID"].astype(str).loc[i])
@@ -55,9 +51,7 @@ def create_word_document():
         table.style = 'Table Grid'
         doc.add_paragraph()
 
-        df['year'] = df['date_column'].dt.year
-
-                # Add year values to the first column in reverse order
+        # Add year values to the first column in reverse order
         df['year'] = df['date_column'].dt.year
         for row in range(rows+1):
             for col in range(2):
