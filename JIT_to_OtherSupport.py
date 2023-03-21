@@ -57,21 +57,21 @@ def create_word_document():
 
         df['year'] = df['date_column'].dt.year
 
-        # Add year values to the first column in reverse order
+                # Add year values to the first column in reverse order
         df['year'] = df['date_column'].dt.year
         for row in range(rows+1):
-            #if not df['Period {} Effort (Calendar months)'.format(row +1)].loc[i].isnull(): # check if the row contains any NaN values
-                for col in range(2):
-                    if col == 0:
-                        if row == 0:
-                            table.cell(row, 0).text = 'Year (YYYY)'
-                        else:
-                            table.cell(row, 0).text = str(row)+'. '+str(int(df['year'][i] - rows + row))
-                    if col ==1:
-                        if row == 0:
-                            table.cell(row, 1).text = 'Person Months (##.##)'
-                        else:
-                            table.cell(row, 1).text = df['Period {} Effort (Calendar months)'.format(row)].astype(str).loc[i]
+            for col in range(2):
+                if col == 0:
+                    if row == 0:
+                        table.cell(row, 0).text = 'Year (YYYY)'
+                    else:
+                        table.cell(row, 0).text = str(row)+'. '+str(int(df['year'][i] - rows + row))
+                if col ==1:
+                    if row == 0:
+                        table.cell(row, 1).text = 'Person Months (##.##)'
+                    else:
+                        table.cell(row, 1).text = df['Period {} Effort (Calendar months)'.format(row)].astype(str).loc[i]
+						
         # Set the cell height and width
         for row in table.rows:
             for cell in row.cells:
