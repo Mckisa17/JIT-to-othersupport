@@ -16,3 +16,5 @@ File, SaveAs, "JIT", csv file, put in the same folder as JIT_to_OtherSupport.py
 8. Now type: pip install python-docx
 9. Now type: python JIT_to_OtherSupport.py
 10. The output word document will appear in the same folder as the JIT_to_OtherSupport.py. The file will be called
+
+Use link: https://mybinder.org/v2/gh/Mckisa17/csv-to-othersupport/main
