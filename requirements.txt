@@ -2,4 +2,5 @@ csv-file==1.0
 DateTime==5.0
 docx==0.2.4
 pandas==1.5.2
+xlrd==2.0.1
 python-docx==0.8.11
